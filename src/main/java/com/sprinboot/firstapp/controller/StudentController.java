@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @ResponseBody
 public class StudentController {
@@ -13,6 +16,16 @@ public class StudentController {
     public Student getStudent() {
         Student student = new Student(1, "Gabriel", "Larramendi");
         return student;
+    }
+
+    @GetMapping("/students")
+    public List<Student> getStudents() {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(1, "Gabriel", "Larra"));
+        students.add(new Student(2, "Raquel", "Larra"));
+        students.add(new Student(3, "Sabrina", "Larra"));
+        students.add(new Student(4, "Estela", "Larra"));
+        return students;
     }
 
 }
